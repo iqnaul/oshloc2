@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet-svg-shape-markers.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Buffer10Kmshp_0.js"></script>
+        <script src="data/Buffer5Kmshp_1.js"></script>
+        <script src="data/BogorLokasiRencanaLogger_2.js"></script>
+        <script src="data/DepokPointFeatures_3.js"></script>
+        <script src="data/KantorIndogreen_4.js"></script>
+        <script src="data/Depokcalontitikdepok_revisiKMZ_5.js"></script>
+        <script src="data/Bekasititik_Lokasi_OSH_2019Point_6.js"></script>
+        <script src="data/PDAMUTM_7.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-6.62992735974,106.567463085],[-6.22005194519,107.249492015]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function pop_Buffer10Kmshp_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PDAM'] !== null ? Autolinker.link(String(feature.properties['PDAM'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Buffer10Kmshp_0_0() {
+            return {
+                pane: 'pane_Buffer10Kmshp_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(33,218,70,1.0)',
+            }
+        }
+        map.createPane('pane_Buffer10Kmshp_0');
+        map.getPane('pane_Buffer10Kmshp_0').style.zIndex = 400;
+        map.getPane('pane_Buffer10Kmshp_0').style['mix-blend-mode'] = 'normal';
+        var layer_Buffer10Kmshp_0 = new L.geoJson(json_Buffer10Kmshp_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Buffer10Kmshp_0',
+            onEachFeature: pop_Buffer10Kmshp_0,
+            style: style_Buffer10Kmshp_0_0,
+        });
+        bounds_group.addLayer(layer_Buffer10Kmshp_0);
+        map.addLayer(layer_Buffer10Kmshp_0);
+        function pop_Buffer5Kmshp_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PDAM'] !== null ? Autolinker.link(String(feature.properties['PDAM'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Buffer5Kmshp_1_0() {
+            return {
+                pane: 'pane_Buffer5Kmshp_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(57,82,241,1.0)',
+            }
+        }
+        map.createPane('pane_Buffer5Kmshp_1');
+        map.getPane('pane_Buffer5Kmshp_1').style.zIndex = 401;
+        map.getPane('pane_Buffer5Kmshp_1').style['mix-blend-mode'] = 'normal';
+        var layer_Buffer5Kmshp_1 = new L.geoJson(json_Buffer5Kmshp_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Buffer5Kmshp_1',
+            onEachFeature: pop_Buffer5Kmshp_1,
+            style: style_Buffer5Kmshp_1_0,
+        });
+        bounds_group.addLayer(layer_Buffer5Kmshp_1);
+        map.addLayer(layer_Buffer5Kmshp_1);
+        function pop_BogorLokasiRencanaLogger_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['timestamp'] !== null ? Autolinker.link(String(feature.properties['timestamp'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? Autolinker.link(String(feature.properties['begin'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? Autolinker.link(String(feature.properties['end'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['altitudeMode'] !== null ? Autolinker.link(String(feature.properties['altitudeMode'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tessellate'] !== null ? Autolinker.link(String(feature.properties['tessellate'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['extrude'] !== null ? Autolinker.link(String(feature.properties['extrude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['visibility'] !== null ? Autolinker.link(String(feature.properties['visibility'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['drawOrder'] !== null ? Autolinker.link(String(feature.properties['drawOrder'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['icon'] !== null ? Autolinker.link(String(feature.properties['icon'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_BogorLokasiRencanaLogger_2_0() {
+            return {
+                pane: 'pane_BogorLokasiRencanaLogger_2',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,0,4,1.0)',
+            }
+        }
+        map.createPane('pane_BogorLokasiRencanaLogger_2');
+        map.getPane('pane_BogorLokasiRencanaLogger_2').style.zIndex = 402;
+        map.getPane('pane_BogorLokasiRencanaLogger_2').style['mix-blend-mode'] = 'normal';
+        var layer_BogorLokasiRencanaLogger_2 = new L.geoJson(json_BogorLokasiRencanaLogger_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_BogorLokasiRencanaLogger_2',
+            onEachFeature: pop_BogorLokasiRencanaLogger_2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_BogorLokasiRencanaLogger_2_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_BogorLokasiRencanaLogger_2);
+        map.addLayer(layer_BogorLokasiRencanaLogger_2);
+        function pop_DepokPointFeatures_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['timestamp'] !== null ? Autolinker.link(String(feature.properties['timestamp'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? Autolinker.link(String(feature.properties['begin'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? Autolinker.link(String(feature.properties['end'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['altitudeMode'] !== null ? Autolinker.link(String(feature.properties['altitudeMode'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tessellate'] !== null ? Autolinker.link(String(feature.properties['tessellate'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['extrude'] !== null ? Autolinker.link(String(feature.properties['extrude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['visibility'] !== null ? Autolinker.link(String(feature.properties['visibility'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['drawOrder'] !== null ? Autolinker.link(String(feature.properties['drawOrder'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['icon'] !== null ? Autolinker.link(String(feature.properties['icon'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_DepokPointFeatures_3_0() {
+            return {
+                pane: 'pane_DepokPointFeatures_3',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(71,67,142,1.0)',
+            }
+        }
+        map.createPane('pane_DepokPointFeatures_3');
+        map.getPane('pane_DepokPointFeatures_3').style.zIndex = 403;
+        map.getPane('pane_DepokPointFeatures_3').style['mix-blend-mode'] = 'normal';
+        var layer_DepokPointFeatures_3 = new L.geoJson(json_DepokPointFeatures_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_DepokPointFeatures_3',
+            onEachFeature: pop_DepokPointFeatures_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_DepokPointFeatures_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_DepokPointFeatures_3);
+        map.addLayer(layer_DepokPointFeatures_3);
+        function pop_KantorIndogreen_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Ket'] !== null ? Autolinker.link(String(feature.properties['Ket'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_KantorIndogreen_4_0() {
+            return {
+                pane: 'pane_KantorIndogreen_4',
+                radius: 8.4,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(24,161,113,1.0)',
+            }
+        }
+        map.createPane('pane_KantorIndogreen_4');
+        map.getPane('pane_KantorIndogreen_4').style.zIndex = 404;
+        map.getPane('pane_KantorIndogreen_4').style['mix-blend-mode'] = 'normal';
+        var layer_KantorIndogreen_4 = new L.geoJson(json_KantorIndogreen_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_KantorIndogreen_4',
+            onEachFeature: pop_KantorIndogreen_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_KantorIndogreen_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_KantorIndogreen_4);
+        map.addLayer(layer_KantorIndogreen_4);
+        function pop_Depokcalontitikdepok_revisiKMZ_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['timestamp'] !== null ? Autolinker.link(String(feature.properties['timestamp'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? Autolinker.link(String(feature.properties['begin'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? Autolinker.link(String(feature.properties['end'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['altitudeMode'] !== null ? Autolinker.link(String(feature.properties['altitudeMode'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tessellate'] !== null ? Autolinker.link(String(feature.properties['tessellate'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['extrude'] !== null ? Autolinker.link(String(feature.properties['extrude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['visibility'] !== null ? Autolinker.link(String(feature.properties['visibility'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['drawOrder'] !== null ? Autolinker.link(String(feature.properties['drawOrder'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['icon'] !== null ? Autolinker.link(String(feature.properties['icon'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Depokcalontitikdepok_revisiKMZ_5_0() {
+            return {
+                pane: 'pane_Depokcalontitikdepok_revisiKMZ_5',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,0,4,1.0)',
+            }
+        }
+        map.createPane('pane_Depokcalontitikdepok_revisiKMZ_5');
+        map.getPane('pane_Depokcalontitikdepok_revisiKMZ_5').style.zIndex = 405;
+        map.getPane('pane_Depokcalontitikdepok_revisiKMZ_5').style['mix-blend-mode'] = 'normal';
+        var layer_Depokcalontitikdepok_revisiKMZ_5 = new L.geoJson(json_Depokcalontitikdepok_revisiKMZ_5, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Depokcalontitikdepok_revisiKMZ_5',
+            onEachFeature: pop_Depokcalontitikdepok_revisiKMZ_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Depokcalontitikdepok_revisiKMZ_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Depokcalontitikdepok_revisiKMZ_5);
+        map.addLayer(layer_Depokcalontitikdepok_revisiKMZ_5);
+        function pop_Bekasititik_Lokasi_OSH_2019Point_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['timestamp'] !== null ? Autolinker.link(String(feature.properties['timestamp'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? Autolinker.link(String(feature.properties['begin'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? Autolinker.link(String(feature.properties['end'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['altitudeMode'] !== null ? Autolinker.link(String(feature.properties['altitudeMode'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tessellate'] !== null ? Autolinker.link(String(feature.properties['tessellate'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['extrude'] !== null ? Autolinker.link(String(feature.properties['extrude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['visibility'] !== null ? Autolinker.link(String(feature.properties['visibility'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['drawOrder'] !== null ? Autolinker.link(String(feature.properties['drawOrder'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['icon'] !== null ? Autolinker.link(String(feature.properties['icon'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Bekasititik_Lokasi_OSH_2019Point_6_0() {
+            return {
+                pane: 'pane_Bekasititik_Lokasi_OSH_2019Point_6',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,83,83,1.0)',
+            }
+        }
+        map.createPane('pane_Bekasititik_Lokasi_OSH_2019Point_6');
+        map.getPane('pane_Bekasititik_Lokasi_OSH_2019Point_6').style.zIndex = 406;
+        map.getPane('pane_Bekasititik_Lokasi_OSH_2019Point_6').style['mix-blend-mode'] = 'normal';
+        var layer_Bekasititik_Lokasi_OSH_2019Point_6 = new L.geoJson(json_Bekasititik_Lokasi_OSH_2019Point_6, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Bekasititik_Lokasi_OSH_2019Point_6',
+            onEachFeature: pop_Bekasititik_Lokasi_OSH_2019Point_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Bekasititik_Lokasi_OSH_2019Point_6_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Bekasititik_Lokasi_OSH_2019Point_6);
+        map.addLayer(layer_Bekasititik_Lokasi_OSH_2019Point_6);
+        function pop_PDAMUTM_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PDAM</th>\
+                        <td>' + (feature.properties['PDAM'] !== null ? Autolinker.link(String(feature.properties['PDAM'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PDAMUTM_7_0() {
+            return {
+                pane: 'pane_PDAMUTM_7',
+                radius: 10.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,1.0)',
+            }
+        }
+        map.createPane('pane_PDAMUTM_7');
+        map.getPane('pane_PDAMUTM_7').style.zIndex = 407;
+        map.getPane('pane_PDAMUTM_7').style['mix-blend-mode'] = 'normal';
+        var layer_PDAMUTM_7 = new L.geoJson(json_PDAMUTM_7, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_PDAMUTM_7',
+            onEachFeature: pop_PDAMUTM_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_PDAMUTM_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_PDAMUTM_7);
+        map.addLayer(layer_PDAMUTM_7);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/PDAMUTM_7.png" /> PDAM UTM': layer_PDAMUTM_7,'<img src="legend/Bekasititik_Lokasi_OSH_2019Point_6.png" /> Bekasi titik_Lokasi_OSH_2019 Point': layer_Bekasititik_Lokasi_OSH_2019Point_6,'<img src="legend/Depokcalontitikdepok_revisiKMZ_5.png" /> Depok calon titik depok_revisi.KMZ': layer_Depokcalontitikdepok_revisiKMZ_5,'<img src="legend/KantorIndogreen_4.png" /> Kantor Indogreen': layer_KantorIndogreen_4,'<img src="legend/DepokPointFeatures_3.png" /> Depok Point Features': layer_DepokPointFeatures_3,'<img src="legend/BogorLokasiRencanaLogger_2.png" /> Bogor Lokasi Rencana Logger': layer_BogorLokasiRencanaLogger_2,'<img src="legend/Buffer5Kmshp_1.png" /> Buffer 5Km.shp': layer_Buffer5Kmshp_1,'<img src="legend/Buffer10Kmshp_0.png" /> Buffer 10Km.shp': layer_Buffer10Kmshp_0,}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_BogorLokasiRencanaLogger_2.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 8pt; font-family: \'Gill Sans MT\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_BogorLokasiRencanaLogger_2'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_KantorIndogreen_4.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Ket'] !== null?String('<div style="color: #000000; font-size: 8pt; font-family: \'Gill Sans MT\', sans-serif;">' + layer.feature.properties['Ket']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_KantorIndogreen_4'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_Depokcalontitikdepok_revisiKMZ_5.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 8pt; font-family: \'Gill Sans MT\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Depokcalontitikdepok_revisiKMZ_5'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_Bekasititik_Lokasi_OSH_2019Point_6.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 8pt; font-family: \'Gill Sans MT\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Bekasititik_Lokasi_OSH_2019Point_6'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_PDAMUTM_7.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['PDAM'] !== null?String('<div style="color: #000000; font-size: 12pt; font-family: \'Gill Sans MT\', sans-serif;">' + layer.feature.properties['PDAM']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_PDAMUTM_7'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_BogorLokasiRencanaLogger_2,layer_KantorIndogreen_4,layer_DepokcalontitikdepokrevisiKMZ_5,layer_BekasititikLokasiOSH2019Point_6,layer_PDAMUTM_7]);
+        map.on("zoomend", function(){
+            resetLabels([layer_BogorLokasiRencanaLogger_2,layer_KantorIndogreen_4,layer_DepokcalontitikdepokrevisiKMZ_5,layer_BekasititikLokasiOSH2019Point_6,layer_PDAMUTM_7]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_BogorLokasiRencanaLogger_2,layer_KantorIndogreen_4,layer_DepokcalontitikdepokrevisiKMZ_5,layer_BekasititikLokasiOSH2019Point_6,layer_PDAMUTM_7]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_BogorLokasiRencanaLogger_2,layer_KantorIndogreen_4,layer_DepokcalontitikdepokrevisiKMZ_5,layer_BekasititikLokasiOSH2019Point_6,layer_PDAMUTM_7]);
+        });
+        </script>
+    </body>
+</html>
